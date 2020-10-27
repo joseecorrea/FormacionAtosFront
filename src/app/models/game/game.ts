@@ -1,4 +1,4 @@
-import { Company } from "../company/company";
+//import { Company } from "../company/company";
 
 export class Game {
     idJuego: number;
@@ -7,5 +7,5 @@ export class Game {
     precio: number;
     pegi: number;
     categoria: string;
-    companies: Company[];
+    //companies: Company[];
 }
