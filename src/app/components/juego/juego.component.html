@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="card border-primary mb-3">
-    <div class="card-header text-center"><h1>Juegos</h1></div>
+    <div class="card-header text-center"><h1>Juegos</h1> <button class="btn btn-primary float-right" (click)="switchID()">{{ showID ? "Ocultar" : "Mostrar"}}   ID  </button> </div>
     <div class="card-body text-primary">
       <table class="table table-bordered table-striped">
         <thead>
@@ -15,13 +15,14 @@
           <tr *ngFor="let juego of juegos">
             <td *ngIf="showID">{{juego.idJuego}}</td>
             <td>{{juego.titulo}}</td>
-            <td>{{juego.fechaLanzamiento}}</td>
+            <td>{{juego.fechaLanzamiento | date: "dd/MM/yyyy"}}</td>
             <td>{{juego.precio}}</td>
             <td>{{juego.pegi}}</td>
-            <td>{{juego.categoria}}</td>
+            <td>{{juego.categoria | uppercase}}</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+

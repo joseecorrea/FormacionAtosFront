@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { JuegoComponent } from './components/juego/juego.component';
+import { JuegoService } from './services/juego.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,12 @@ import { JuegoComponent } from './components/juego/juego.component';
     JuegoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    JuegoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
