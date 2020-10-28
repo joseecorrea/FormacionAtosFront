@@ -1,0 +1,21 @@
+<div class="card container p-0">
+  <div class="card-header text-center">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="create()" class="m-2">
+      <div class="form-group row">
+        <label for="cifInput" class="col-2">CIF</label>
+        <input type="text" class="form-control col-10" id="cifInput" [(ngModel)]="company.cif" name="cif">
+      </div>
+      <div class="form-group row">
+        <label for="nombreInput" class="col-2">Nombre</label>
+        <input type="text" class="form-control col-10" id="nombreInput" [(ngModel)]="company.nombre" name="nombre">
+      </div>
+      <div class="float-right">
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <button type="submit" class="btn btn-primary ml-2" routerLink="/companies">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

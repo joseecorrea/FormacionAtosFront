@@ -1,8 +1,13 @@
-<div class="container-fluid">
+
+<div *ngIf="juegos?.length == 0" class="alert alert-info">
+  No hay juegos
+</div>
+
+<div *ngIf="juegos?.length > 0">
   <div class="card border-primary mb-3">
-    <div class="card-header text-center"><h1>Juegos</h1> <button class="btn btn-primary float-right" (click)="switchID()">{{ showID ? "Ocultar" : "Mostrar"}}   ID  </button> </div>
+    <div class="card-header text-center"><h1 class="d-inline">Juegos</h1> <button class="btn btn-primary float-right" (click)="switchID()">{{ showID ? "Ocultar" : "Mostrar"}}   ID  </button> </div>
     <div class="card-body text-primary">
-      <table class="table table-bordered table-striped">
+      <table class="table table-bordered table-striped text-center">
         <thead>
           <th *ngIf="showID">ID</th>
           <th>Titulo</th>
@@ -22,6 +27,7 @@
           </tr>
         </tbody>
       </table>
+      <button class="btn btn-primary float-right mb-3" routerLink="/juegos/form">Añadir Juego</button>
     </div>
   </div>
 </div>

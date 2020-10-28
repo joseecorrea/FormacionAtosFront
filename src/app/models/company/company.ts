@@ -4,5 +4,5 @@ export class Company {
     idCompany: number;
     cif: String;
     nombre: String;
-    juegos: Game[];
+    //juegos: Game[];
 }

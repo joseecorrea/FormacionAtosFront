@@ -1,0 +1,27 @@
+
+<div *ngIf="companies?.length == 0" class="alert alert-info">
+  No hay juegos
+</div>
+
+<div *ngIf="companies?.length > 0">
+  <div class="card border-primary mb-3">
+    <div class="card-header text-center"><h1>Compañias</h1> <!--<button class="btn btn-primary float-right" (click)="switchID()">{{ showID ? "Ocultar" : "Mostrar"}}   ID  </button>--> </div>
+    <div class="card-body text-primary">
+      <table class="table table-bordered table-striped text-center">
+        <thead>
+          <!--<th *ngIf="showID">ID</th>-->
+          <th>Nombre</th>
+          <th>CIF</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let company of companies">
+            <!--<td *ngIf="showID">{{juego.idJuego}}</td>-->
+            <td>{{company.nombre}}</td>
+            <td>{{company.cif}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-primary float-right mb-3" routerLink="/companies/form">Añadir Compañia</button>
+    </div>
+  </div>
+</div>
