@@ -29,6 +29,22 @@ export class JuegoService {
     .pipe(catchError(error  => {
       this.alertS.error(`Error al crear el juego: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
       return throwError(error)
-  }))
+    }))
+  }
+
+  getJuego(id: number): Observable<Game> {
+    return this.http.get<Game>(`${this.juegosUrl}/${id}`)
+    .pipe(catchError(error  => {
+        this.alertS.error(`Error al consultar el: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
+        return throwError(error)
+    }))
+  }
+
+  updateJuego(juego:Game): Observable<Game> {
+    return this.http.put<Game>(`${this.juegosUrl}/${juego.idJuego}`,juego,httpOptions)
+    .pipe(catchError(error  => {
+      this.alertS.error(`Error al editar el juego: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
+      return throwError(error)
+    }))
   }
 }

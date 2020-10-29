@@ -14,11 +14,15 @@ import { JuegoFormComponent } from './components/juego-form/juego-form.component
 import { FormsModule } from '@angular/forms';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CompaniesFormComponent } from './components/companies-form/companies-form.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 
 const ROUTES: Routes = [
   {path:"",redirectTo: "/juegos", pathMatch: "full"},
   {path:"juegos",component: JuegoComponent},
   {path:"juegos/form",component: JuegoFormComponent},
+  {path:"juegos/form/:id",component: JuegoFormComponent},
   {path:"companies",component: CompaniesComponent},
   {path:"companies/form",component: CompaniesFormComponent}
 ]
@@ -38,7 +42,8 @@ const ROUTES: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [
     JuegoService,

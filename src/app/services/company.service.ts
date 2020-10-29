@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AlertService } from '../components/alerts/alert.service';
 import { Company } from '../models/company/company';
-import { CommaExpr } from '@angular/compiler';
 
 const httpOptions = {
   headers: new HttpHeaders().set('Content-Type','application/json')

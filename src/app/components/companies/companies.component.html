@@ -10,18 +10,27 @@
       <table class="table table-bordered table-striped text-center">
         <thead>
           <!--<th *ngIf="showID">ID</th>-->
-          <th>Nombre</th>
           <th>CIF</th>
+          <th>Nombre</th>
+          <th>Juegos</th>
         </thead>
         <tbody>
           <tr *ngFor="let company of companies">
             <!--<td *ngIf="showID">{{juego.idJuego}}</td>-->
-            <td>{{company.nombre}}</td>
             <td>{{company.cif}}</td>
+            <td>{{company.nombre}}</td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li class="dropdown-item" *ngFor="let juego of company.juegos">{{juego.titulo}}</li>
+                </div>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
-      <button class="btn btn-primary float-right mb-3" routerLink="/companies/form">Añadir Compañia</button>
     </div>
   </div>
 </div>
