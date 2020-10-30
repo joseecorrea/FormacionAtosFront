@@ -1,0 +1,26 @@
+<form class="form-signin">
+  <div class="text-center m-2">
+    <fa-icon [icon]="icons.faGamepad" size="3x"></fa-icon>
+  </div>
+  <h1 class="h3 mb-3 font-weight-normal text-center">Iniciar Sesión</h1>
+  <div class="form-group row">
+    <input type="text" id="inputEmail" class="form-control" placeholder="Usuario" [(ngModel)]="credentials.username" name="titulo" maxlength="255" required #username="ngModel" autofocus>
+    <div class="alert alert-danger col-12" *ngIf="username.invalid && (username.dirty || username.touched)">
+      <div *ngIf="username.errors.required">
+        Debe rellenar el campo usuario
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" [(ngModel)]="credentials.password" name="titulo" maxlength="255" required #password="ngModel">
+    <div class="alert alert-danger col-12" *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.errors.required">
+        Debe rellenar el campo contraseña
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button type="button" class="btn btn-primary" (click)="login()">Iniciar Sesión</button>
+  </div>
+  <p class="mt-5 mb-3 text-muted text-center">&copy;2020</p>
+</form>

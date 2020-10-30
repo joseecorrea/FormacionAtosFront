@@ -15,16 +15,18 @@ import { FormsModule } from '@angular/forms';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CompaniesFormComponent } from './components/companies-form/companies-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoginComponent } from './components/login/login.component';
 
 
 
 const ROUTES: Routes = [
-  {path:"",redirectTo: "/juegos", pathMatch: "full"},
+  {path:"",redirectTo: "/login", pathMatch: "full"},
   {path:"juegos",component: JuegoComponent},
   {path:"juegos/form",component: JuegoFormComponent},
   {path:"juegos/form/:id",component: JuegoFormComponent},
   {path:"companies",component: CompaniesComponent},
-  {path:"companies/form",component: CompaniesFormComponent}
+  {path:"companies/form",component: CompaniesFormComponent},
+  {path:"login",component: LoginComponent}
 ]
 
 @NgModule({
@@ -36,7 +38,8 @@ const ROUTES: Routes = [
     AlertComponent,
     JuegoFormComponent,
     CompaniesComponent,
-    CompaniesFormComponent
+    CompaniesFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

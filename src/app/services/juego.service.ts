@@ -27,8 +27,15 @@ export class JuegoService {
   addJuego(juego:Game): Observable<Game> {
     return this.http.post<Game>(this.juegosUrl,juego,httpOptions)
     .pipe(catchError(error  => {
-      this.alertS.error(`Error al crear el juego: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
-      return throwError(error)
+      if(error.status == 400){
+        error.error.errorMessage.replace("["," ").replace("]"," ").split(", ").reverse().forEach(errorM => {
+          this.alertS.error(`${errorM}`,{autoClose:false,keepAfterRouteChange:false});
+        });
+      }else{
+        this.alertS.error(`Error al crear el juego: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
+        return throwError(error)
+      }
+
     }))
   }
 
@@ -43,8 +50,14 @@ export class JuegoService {
   updateJuego(juego:Game): Observable<Game> {
     return this.http.put<Game>(`${this.juegosUrl}/${juego.idJuego}`,juego,httpOptions)
     .pipe(catchError(error  => {
-      this.alertS.error(`Error al editar el juego: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
-      return throwError(error)
+      if(error.status == 400){
+        error.error.errorMessage.replace("["," ").replace("]"," ").split(", ").reverse().forEach(errorM => {
+          this.alertS.error(`${errorM}`,{autoClose:false,keepAfterRouteChange:false});
+        });
+      }else{
+        this.alertS.error(`Error al editar el juego: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
+        return throwError(error)
+      }
     }))
   }
 

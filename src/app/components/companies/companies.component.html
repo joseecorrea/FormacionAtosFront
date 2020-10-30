@@ -24,7 +24,7 @@
                 <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <li class="dropdown-item" *ngFor="let juego of company.juegos">{{juego.titulo}}</li>
+                  <li class="dropdown-item" *ngFor="let juego of company.juegos" [routerLink]="['/juegos/form',juego.idJuego]">{{juego.titulo}}</li>
                 </div>
               </div>
             </td>
