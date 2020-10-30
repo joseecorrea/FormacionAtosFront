@@ -24,8 +24,8 @@ export class JuegoService {
     }))
   }
 
-  addJuego(juego:Game): Observable<Game[]> {
-    return this.http.post<Game[]>(this.juegosUrl,juego,httpOptions)
+  addJuego(juego:Game): Observable<Game> {
+    return this.http.post<Game>(this.juegosUrl,juego,httpOptions)
     .pipe(catchError(error  => {
       this.alertS.error(`Error al crear el juego: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
       return throwError(error)
@@ -44,6 +44,14 @@ export class JuegoService {
     return this.http.put<Game>(`${this.juegosUrl}/${juego.idJuego}`,juego,httpOptions)
     .pipe(catchError(error  => {
       this.alertS.error(`Error al editar el juego: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
+      return throwError(error)
+    }))
+  }
+
+  deleteJuego(id:number): Observable<any> {
+    return this.http.delete<Game>(`${this.juegosUrl}/${id}`,httpOptions)
+    .pipe(catchError(error  => {
+      this.alertS.error(`Error al eliminar el juego: "${error.message}"`,{autoClose:false,keepAfterRouteChange:false});
       return throwError(error)
     }))
   }

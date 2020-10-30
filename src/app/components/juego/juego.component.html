@@ -41,6 +41,7 @@
             </td>
             <td>
               <button class="btn btn-sm btn-primary" [routerLink]="['/juegos/form', juego.idJuego]" type="button"> <fa-icon [icon]="icons.faEdit"></fa-icon> </button>
+              <button class="btn ml-2 btn-sm btn-secondary" (click)="delete(juego)" type="button"> <fa-icon [icon]="icons.faTrashAlt"></fa-icon> </button>
             </td>
           </tr>
         </tbody>
