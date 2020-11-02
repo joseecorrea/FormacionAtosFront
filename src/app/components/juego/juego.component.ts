@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/app/models/game/game';
 import { JuegoService } from 'src/app/services/juego.service';
-import { faEdit, faPlusSquare,faEye,faEyeSlash, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faEdit, faPlusSquare, faEye, faEyeSlash, faTrashAlt, faIdBadge } from '@fortawesome/free-regular-svg-icons';
 import { faGamepad } from '@fortawesome/free-solid-svg-icons';
 import { AlertService } from '../alerts/alert.service';
 import { Router } from '@angular/router';
@@ -14,13 +14,14 @@ import { Router } from '@angular/router';
 })
 export class JuegoComponent implements OnInit {
 
-  icons:any = {
-    faEdit : faEdit,
-    faPlusSquare : faPlusSquare,
-    faEye : faEye,
-    faEyeSlash : faEyeSlash,
-    faGamepad : faGamepad,
-    faTrashAlt : faTrashAlt
+  icons: any = {
+    faEdit: faEdit,
+    faPlusSquare: faPlusSquare,
+    faEye: faEye,
+    faEyeSlash: faEyeSlash,
+    faGamepad: faGamepad,
+    faTrashAlt: faTrashAlt,
+    faIdBadge: faIdBadge
   }
 
   juegos: Game[];
@@ -37,16 +38,16 @@ export class JuegoComponent implements OnInit {
     this.loadGames()
   }
 
-  loadGames(): void{
-    this.juegoService.getJuegos().subscribe( juegosJSON =>
+  loadGames(): void {
+    this.juegoService.getJuegos().subscribe(juegosJSON =>
       this.juegos = juegosJSON
     );
   }
 
-  public delete(juego: Game):void {
-    if(confirm(`¿Esta seguro de que desea eliminar el juego con nombre: ${juego.titulo}`)){
+  public delete(juego: Game): void {
+    if (confirm(`¿Esta seguro de que desea eliminar el juego con nombre: ${juego.titulo}`)) {
       this.juegoService.deleteJuego(juego.idJuego).subscribe(resp => {
-        this.alertS.success(`Juego Eliminado Correctamente`,{autoClose:true,keepAfterRouteChange:false});
+        this.alertS.success(`Juego Eliminado Correctamente`, { autoClose: true, keepAfterRouteChange: false });
         this.loadGames()
       })
     }

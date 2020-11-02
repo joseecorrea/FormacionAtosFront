@@ -20,13 +20,13 @@ import { LoginComponent } from './components/login/login.component';
 
 
 const ROUTES: Routes = [
-  {path:"",redirectTo: "/login", pathMatch: "full"},
-  {path:"juegos",component: JuegoComponent},
-  {path:"juegos/form",component: JuegoFormComponent},
-  {path:"juegos/form/:id",component: JuegoFormComponent},
-  {path:"companies",component: CompaniesComponent},
-  {path:"companies/form",component: CompaniesFormComponent},
-  {path:"login",component: LoginComponent}
+  { path: "", redirectTo: "/juegos", pathMatch: "full" },
+  { path: "juegos", component: JuegoComponent },
+  { path: "juegos/form", component: JuegoFormComponent },
+  { path: "juegos/form/:id", component: JuegoFormComponent },
+  { path: "companies", component: CompaniesComponent },
+  { path: "companies/form", component: CompaniesFormComponent },
+  { path: "login", component: LoginComponent }
 ]
 
 @NgModule({
